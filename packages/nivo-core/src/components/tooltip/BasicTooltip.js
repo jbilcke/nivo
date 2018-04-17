@@ -29,7 +29,9 @@ const BasicTooltip = props => {
         <div style={theme.tooltip.container}>
             <div style={theme.tooltip.basic}>
                 {enableChip && <Chip color={color} style={chipStyle} />}
-                {value !== undefined ? (
+                {typeof value === 'function' ?
+                    value() :
+                    value !== undefined ? (
                     <span>
                         {id}: <strong>{value}</strong>
                     </span>
